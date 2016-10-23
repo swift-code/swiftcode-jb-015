@@ -2,6 +2,9 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
-POST    /user/signup                controllers.Application.signup()
-POST    /user/login                 controllers.Application.login()
+GET     /assets/*file                           controllers.Assets.versioned(path="/public", file: Asset)
+GET     /profile/:id                            controllers.HomeController.getProfile(id:Long)
+POST    /user/signup                            controllers.Application.signup()
+POST    /user/login                             controllers.Application.login()
+POST    /request/send/:senderid/:receiverid     controllers.ConnectionController.sendRequest(senderid: Long, receiverid: Long)
+POST    /request/accept/:id                     controllers.ConnectionController.acceptRequest(id: Long)
